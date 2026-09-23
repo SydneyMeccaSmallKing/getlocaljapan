@@ -30,8 +30,8 @@ export const media = {
     label: "The Alphard at dusk",
   },
   shrine: {
-    src: "/media/shrine.mp4",
-    poster: "/media/shrine-front.jpg",
+    src: "/media/shrine-family.mp4",
+    poster: "/media/shrine-family.jpg",
     label: "A family of three smiling at a shrine",
   },
 } as const;

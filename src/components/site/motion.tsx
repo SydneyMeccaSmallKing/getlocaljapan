@@ -100,7 +100,7 @@ export function Film({
         {isGif ? (
           <img src={src} alt={label} className="h-full w-full object-cover" />
         ) : (
-          <div className="drift absolute inset-0">
+          <div className="absolute inset-0">
             <Poster src={poster} />
             <video
               ref={videoRef}

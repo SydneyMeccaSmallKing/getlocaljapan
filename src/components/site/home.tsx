@@ -28,8 +28,8 @@ function Nav() {
 
   return (
     <header className="sticky top-0 z-50 border-b border-ink/20 bg-bg">
-      <div className="wrap flex min-h-16 items-center justify-between gap-4">
-        <a href="#top" className="text-lg font-medium tracking-tight">
+      <div className="wrap flex min-h-14 items-center justify-between gap-2 sm:min-h-16 sm:gap-4">
+        <a href="#top" className="min-w-0 truncate text-base font-medium tracking-tight sm:text-lg">
           getlocaljapan
         </a>
         <nav className="hidden items-center gap-6 md:flex" aria-label="Primary">
@@ -39,13 +39,13 @@ function Nav() {
             </a>
           ))}
         </nav>
-        <div className="flex items-center gap-3">
+        <div className="flex shrink-0 items-center gap-2 sm:gap-3">
           <p className="hidden text-sm sm:block">
             <TokyoClock /> <span className="kicker">{t.tokyo}</span>
           </p>
           <button
             type="button"
-            className="tap min-h-11 border border-ink px-3 text-sm"
+            className="tap min-h-11 border border-ink px-2.5 text-sm sm:px-3"
             onClick={() => setLang(lang === "en" ? "zh" : "en")}
           >
             {lang === "en" ? "中文" : "EN"}
@@ -95,7 +95,7 @@ function Faq() {
   const [open, setOpen] = useState(0);
   const { t } = useI18n();
   return (
-    <section id="questions" className="wrap py-20 md:py-28">
+    <section id="questions" className="wrap py-14 md:py-28">
       <p className="kicker">{t.faqKicker}</p>
       <h2 className="display-2 mt-3">{t.faqTitle}</h2>
       <div className="mt-8 border-t border-ink/25">
@@ -109,7 +109,7 @@ function Faq() {
                 aria-expanded={on}
                 onClick={() => setOpen(on ? -1 : index)}
               >
-                <span className="font-display text-2xl">{item.q}</span>
+                <span className="min-w-0 font-display text-xl sm:text-2xl">{item.q}</span>
                 <span className="font-display text-2xl tabular-nums" aria-hidden="true">
                   {on ? "–" : "+"}
                 </span>
@@ -192,7 +192,7 @@ function Page() {
             <p className="mt-1 text-sm">{t.heroFacts}</p>
           </div>
         </section>
-        <ul className="grid grid-cols-2 border-b border-ink md:grid-cols-4">
+        <ul className="fact-row grid grid-cols-1 border-b border-ink min-[420px]:grid-cols-2 md:grid-cols-4">
           {t.facts.map((fact) => (
             <li key={fact} className="kicker border-t border-ink px-4 py-5 md:px-6">
               {fact}
@@ -205,7 +205,7 @@ function Page() {
             <TickerRow id="b" items={t.ticker} />
           </div>
         </div>
-        <section className="wrap py-20 md:py-28">
+        <section className="wrap py-14 md:py-28">
           <div className="grid gap-5 md:grid-cols-3">
             {t.pillars.map((item, index) => (
               <Reveal key={item.title} delay={index * 90}>
@@ -218,7 +218,7 @@ function Page() {
           </div>
         </section>
         <Experiences />
-        <section id="method" className="wrap pb-20 md:pb-28">
+        <section id="method" className="wrap pb-14 md:pb-28">
           <p className="kicker">{t.wayKicker}</p>
           <h2 className="display-2 mt-3 max-w-xl">{t.wayTitle}</h2>
           <ol className="mt-10 grid gap-px bg-ink/20 sm:grid-cols-2 lg:grid-cols-4">
@@ -232,7 +232,7 @@ function Page() {
           </ol>
         </section>
         <section id="fleet" className="border-t border-ink/15">
-          <div className="wrap grid items-center gap-10 py-20 lg:grid-cols-12 lg:py-28">
+          <div className="wrap grid items-center gap-8 py-14 lg:grid-cols-12 lg:gap-10 lg:py-28">
             <div className="lg:col-span-7">
               <Film
                 src={media.alphard.src}
@@ -279,22 +279,22 @@ function Page() {
           <div className="mt-10 grid gap-4 md:grid-cols-2">
             <a className="stamp bg-paper p-6" href={whatsappLink(t.intro)} target="_blank" rel="noreferrer">
               <span className="kicker">{t.wa}</span>
-              <span className="mt-4 block font-display text-3xl sm:text-4xl">{CONTACT.phoneDisplay}</span>
+              <span className="mt-4 block font-display text-2xl sm:text-4xl">{CONTACT.phoneDisplay}</span>
             </a>
             <a className="stamp bg-paper p-6" href={`mailto:${CONTACT.email}`}>
               <span className="kicker">{t.email}</span>
-              <span className="mt-4 block break-all font-display text-2xl sm:text-4xl">{CONTACT.email}</span>
+              <span className="mt-4 block break-all font-display text-xl sm:text-4xl">{CONTACT.email}</span>
             </a>
           </div>
         </section>
       </main>
-      <footer className="wrap flex flex-wrap items-center justify-between gap-3 border-t border-ink/20 py-8 text-sm">
+      <footer className="wrap flex flex-col gap-2 border-t border-ink/20 py-8 text-sm sm:flex-row sm:flex-wrap sm:items-center sm:justify-between">
         <p>getlocaljapan</p>
-        <p>
+        <p className="break-all">
           {CONTACT.name} · {CONTACT.phoneDisplay} · {CONTACT.email}
         </p>
       </footer>
-      <div className="fixed inset-x-0 bottom-0 z-50 border-t border-ink/20 bg-bg p-3 md:hidden">
+      <div className="fixed inset-x-0 bottom-0 z-50 border-t border-ink/20 bg-bg p-3 pb-[max(0.75rem,env(safe-area-inset-bottom))] md:hidden">
         <a
           className="tap flex min-h-11 items-center justify-center bg-ink px-4 text-paper"
           href="#plan"

@@ -19,10 +19,10 @@ export function Experiences() {
               <div className="lg:col-span-8">
                 <Film plain src={item.media.src} poster={item.media.poster} label={item.media.label} />
               </div>
-              <div className="px-6 py-10 lg:col-span-4 lg:px-12">
+              <div className="px-5 py-6 sm:px-6 sm:py-10 lg:col-span-4 lg:px-12">
                 <p className="kicker">{item.index}</p>
-                <h3 className="mt-3 font-display text-5xl">{copy.title}</h3>
-                <p className="mt-4 font-display text-2xl italic">{copy.lede}</p>
+                <h3 className="mt-2 font-display text-4xl sm:text-5xl">{copy.title}</h3>
+                <p className="mt-3 font-display text-xl italic sm:text-2xl">{copy.lede}</p>
                 <p className="mt-4 max-w-xs text-lg">{copy.body}</p>
               </div>
             </article>

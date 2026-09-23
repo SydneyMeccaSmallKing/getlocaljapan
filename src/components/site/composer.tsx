@@ -111,11 +111,11 @@ export function Composer() {
 
   return (
     <section id="plan" className="bg-paper text-ink">
-      <div className="wrap py-20 md:py-28">
+      <div className="wrap py-14 md:py-28">
         <p className="kicker">{t.planKicker}</p>
         <h2 className="display-2 mt-3 max-w-xl">
           {t.planTitle}
-          <span className="mt-1 block italic">{t.planTitle2}</span>
+          <span className="mt-3 block italic">{t.planTitle2}</span>
         </h2>
         <p className="mt-4 max-w-2xl text-lg">{t.planBody}</p>
         <div className="mt-10 grid items-start gap-10 lg:grid-cols-12">
@@ -131,7 +131,7 @@ export function Composer() {
                       type="button"
                       aria-pressed={on}
                       className={clsx(
-                        "tap min-h-11 border border-ink px-4 text-sm",
+                        "tap min-h-11 w-full border border-ink px-4 text-sm sm:w-auto",
                         on ? "bg-ink text-paper" : "bg-transparent text-ink",
                       )}
                       onClick={() => applyPreset(preset.id)}
@@ -227,7 +227,7 @@ export function Composer() {
             </label>
               </div>
             ) : (
-              <button type="button" className="tap min-h-11 justify-self-start bg-ink px-5 text-paper" onClick={() => setOpen(true)}>
+              <button type="button" className="tap min-h-11 w-full bg-ink px-5 text-paper sm:w-auto sm:justify-self-start" onClick={() => setOpen(true)}>
                 {t.build}
               </button>
             )}
@@ -258,21 +258,21 @@ export function Composer() {
                 {t.dropped} {plan.dropped.map((id) => t.interest[id]).join(lang === "zh" ? "、" : ", ")}.
               </p>
             ) : null}
-            <div className="mt-6 flex flex-wrap gap-3">
+            <div className="mt-6 grid gap-3 sm:flex sm:flex-wrap">
               <a
-                className="tap inline-flex min-h-11 items-center bg-ink px-4 text-paper"
+                className="tap inline-flex min-h-11 items-center justify-center bg-ink px-4 text-paper sm:justify-start"
                 href={whatsappLink(shortBrief)}
                 target="_blank"
                 rel="noreferrer"
               >
                 {t.waSteve}
               </a>
-              <a className="tap inline-flex min-h-11 items-center border border-ink px-4" href={mailHref(input, plan, lang)}>
+              <a className="tap inline-flex min-h-11 items-center justify-center border border-ink px-4 sm:justify-start" href={mailHref(input, plan, lang)}>
                 {t.emailBrief}
               </a>
               <button
                 type="button"
-                className="tap inline-flex min-h-11 items-center gap-2 border border-ink px-4"
+                className="tap inline-flex min-h-11 items-center justify-center gap-2 border border-ink px-4 sm:justify-start"
                 onClick={() => {
                   void navigator.clipboard.writeText(fullBrief).then(
                     () => {
