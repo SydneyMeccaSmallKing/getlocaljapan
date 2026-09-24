@@ -43,13 +43,33 @@ function Nav() {
           <p className="hidden text-sm sm:block">
             <TokyoClock /> <span className="kicker">{t.tokyo}</span>
           </p>
-          <button
-            type="button"
-            className="tap min-h-11 border border-ink px-2.5 text-sm sm:px-3"
-            onClick={() => setLang(lang === "en" ? "zh" : "en")}
-          >
-            {lang === "en" ? "中文" : "EN"}
-          </button>
+          <div className="flex touch-manipulation border border-ink" role="group" aria-label="Language">
+            {(
+              [
+                ["en", "EN", "English"],
+                ["zh", "简", "简体中文"],
+                ["zhHant", "繁", "繁體中文"],
+              ] as const
+            ).map(([id, label, name]) => (
+              <button
+                key={id}
+                type="button"
+                aria-pressed={lang === id}
+                aria-label={name}
+                className={clsx(
+                  "min-h-11 min-w-11 touch-manipulation px-2 text-sm",
+                  lang === id ? "bg-ink text-paper" : "bg-transparent",
+                )}
+                onPointerDown={(event) => {
+                  if (event.button !== 0) return;
+                  setLang(id);
+                }}
+                onClick={() => setLang(id)}
+              >
+                {label}
+              </button>
+            ))}
+          </div>
           <a
             className="tap hidden min-h-11 items-center bg-ink px-4 text-sm text-paper md:inline-flex"
             href={whatsappLink(t.intro)}

@@ -255,7 +255,7 @@ export function Composer() {
             </ol>
             {plan.dropped.length > 0 ? (
               <p className="mt-4 text-sm">
-                {t.dropped} {plan.dropped.map((id) => t.interest[id]).join(lang === "zh" ? "、" : ", ")}.
+                {t.dropped} {plan.dropped.map((id) => t.interest[id]).join(lang === "en" ? ", " : "、")}.
               </p>
             ) : null}
             <div className="mt-6 grid gap-3 sm:flex sm:flex-wrap">

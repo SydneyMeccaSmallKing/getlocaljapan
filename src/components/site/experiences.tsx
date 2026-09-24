@@ -23,7 +23,16 @@ export function Experiences() {
                 <p className="kicker">{item.index}</p>
                 <h3 className="mt-2 font-display text-4xl sm:text-5xl">{copy.title}</h3>
                 <p className="mt-3 font-display text-xl italic sm:text-2xl">{copy.lede}</p>
-                <p className="mt-4 max-w-xs text-lg">{copy.body}</p>
+                <p className="mt-4 max-w-sm text-lg">{copy.body}</p>
+                {copy.holds.length > 0 ? (
+                  <ul className="mt-5 grid max-w-sm gap-2">
+                    {copy.holds.map((hold) => (
+                      <li key={hold} className="border-t border-ink/20 py-2 text-sm">
+                        {hold}
+                      </li>
+                    ))}
+                  </ul>
+                ) : null}
               </div>
             </article>
           );

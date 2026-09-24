@@ -141,6 +141,15 @@ html[lang="zh-Hans"] :is(h1, h2, h3, .font-display) {
   letter-spacing: 0;
 }
 
+html[lang="zh-Hant"] {
+  --font-sans: "Outfit", "Noto Sans TC", "Noto Sans SC", system-ui, sans-serif;
+}
+
+html[lang="zh-Hant"] :is(h1, h2, h3, .font-display) {
+  font-family: "Noto Sans TC", var(--font-sans);
+  letter-spacing: 0;
+}
+
 .hero-stage {
   position: relative;
   display: grid;
@@ -313,23 +322,21 @@ html[lang="zh-Hans"] :is(h1, h2, h3, .font-display) {
   scale: 0.96;
 }
 
+header .tap:active {
+  scale: 1;
+}
+
 .icon-swap {
-  transition:
-    opacity 300ms cubic-bezier(0.2, 0, 0, 1),
-    scale 300ms cubic-bezier(0.2, 0, 0, 1),
-    filter 300ms cubic-bezier(0.2, 0, 0, 1);
+  transition: opacity 180ms ease;
 }
 
 .icon-swap.on {
   opacity: 1;
-  scale: 1;
-  filter: blur(0);
 }
 
 .icon-swap.off {
   opacity: 0;
-  scale: 0.25;
-  filter: blur(4px);
+  pointer-events: none;
 }
 
 .menu-panel {
